@@ -92,7 +92,7 @@ function displayWeatherInfo(weatherData) {
             console.error('Element with ID "feelsLike" not found.');
         }
         temperatureElement.textContent = 'Temperature: ' + currentWeather.temp_c + ' °C';
-        localTimeElement.textContent= 'Local Time: ' + formatTime12Hour(data.location.localtime);
+        localTimeElement.textContent=retunDay(data.location.localtime)+', '+ formatTime12Hour(data.location.localtime);
         if (conditionElement) {
             const conditionText = 'Condition: ' + currentWeather.condition.text;
             let conditionHTML = conditionText;
@@ -122,7 +122,7 @@ function displayWeatherInfo(weatherData) {
                 }
             }
 
-            if (currentWeather.condition.text === 'Light rain shower'||currentWeather.condition.text === 'Patchy rain nearby') {
+            if (currentWeather.condition.text === 'Light rain shower'||currentWeather.condition.text === 'Patchy rain nearby'||currentWeather.condition.text==='Light freezing rain') {
                 if(dayOrNight(data.location.localtime)==='day'){
                     conditionHTML += `<img src="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/rainy-1.svg" alt="Light Rain Day Icon">`;
                 }
@@ -165,6 +165,39 @@ function formatTime12Hour(dateTimeString) {
     const formattedTime = hours + '.' + minutes + ' ' + meridiem;
 
     return formattedTime;
+}
+
+function retunDay(dateTimeString){
+    const date =new Date(dateTimeString);
+    let days= date.getDay();
+    if (days===1)
+    {
+        return 'Monday';
+    }
+    if (days===2)
+    {
+        return 'Tuesday';
+    }
+    if (days===3)
+    {
+        return 'Wednesday';
+    }
+    if (days===4)
+    {
+        return 'Thursday';
+    }
+    if (days===5)
+    {
+        return 'Friday';
+    }
+    if (days===6)
+    {
+        return 'Saturday';
+    }
+    if (days===7)
+    {
+        return 'Sunday';
+    }
 }
 function dayOrNight(dateTimeString){
     const date= new Date(dateTimeString);

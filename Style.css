@@ -1,17 +1,14 @@
 /* Style the navbar */
 .navbar {
-    background-color: rgb(4, 110, 148);
-    margin: 0;
-    padding: 0;
+    background-color: rgb(3, 54, 65);
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    /* background-image: url("clouds.jpg"); */
-    
-    background-size: cover;
     z-index: 1000;
+    height: 30px; /* Adjusted height */
+    padding: 5px 0; /* Adjusted padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* Style the navbar list */
@@ -19,10 +16,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    padding-top: 20px;
-    padding-right: 20px;
     text-align: right;
-    padding-bottom: 20px;
 }
 
 /* Style the navbar list items */
@@ -33,34 +27,33 @@
 
 /* Style the navbar links */
 .navbar a {
-    color: rgb(250, 250, 250);
+    color: white;
     text-decoration: none;
     font-size: 18px;
-    transition: color 0.3s, background-color 0.3s;
     font-family: 'Times New Roman', Times, serif;
     border-radius: 5px;
-    padding: 5px 10px; /* Adjust padding as needed */
+    padding: 10px 15px; /* Adjust padding as needed */
+    transition: color 0.3s, background-color 0.3s;
 }
 
 .navbar a:hover {
-    color: rgb(2, 16, 177);
-    background-color: rgb(158, 200, 240);
-    text-decoration: underline;
+    color: whitesmoke;
+    background-color: rgb(19, 131, 109);
     border-radius: 5px;
 }
 
 /* Style the weather widget */
 .weather-widget {
-    margin-top: 65px; /* Adjust margin as needed */
-    background-color: beige;
+    margin-top: 50px; /* Adjust margin as needed */
+    /* background-color: beige; */
     width: 100%;
     padding-left: 0px;
     margin-left: 0px;
     height:auto;
     padding-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8) ;
-    top:0;
-    left:0;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); */
+    text-align: center;
+    margin-bottom: 100px;
 }
 
 /* Style the check weather label */
@@ -71,43 +64,50 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
     font-weight: bold;
-    color: rgb(7, 2, 55); /* Add a color value */
+    color:  rgb(3, 54, 65); /* Add a color value */
 }
+
 
 .city-textbox {
     text-align: center;
     margin-bottom: 10px;
     padding-bottom: 10px;
+    display: inline-block;
+    width: 500px;
 }
 
 .city-name {
     height: 30px;
-    width: 90%; /* Adjust width for mobile */
+    width: 50%; /* Adjust width for mobile */
     max-width: 500px; /* Set max-width for larger screens */
     transition: border-color 0.3s,box-shadow 0.3s;
     border-radius: 5px;
+    text-align: left;
+    padding-top: 0px;
+    margin-top: 0px;
 }
 
 .city-name:hover{
-    border-color: rgb(0, 187, 255);
+    border-color:  rgb(3, 54, 65);
+    border-width: 2px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
 .city-name:focus{
-    border-color: #00bbff;
+    border-color: rgb(3, 54, 65);
 }
 
 .Get-Weather{
-    /* background-image: url("tenor.gif"); */
-    background-color:  rgb(4, 110, 148);
-    width: 50px;
-    height: 40px;
+    background-color:white;
+    width: 40px;
+    height: 100%;
     border-radius: 10px;
     color: white;
     font-size: 18px;
     transition: box-shadow 0.3s;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
 }
 
 .Get-Weather img{
@@ -119,7 +119,6 @@
 .Get-Weather:hover{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
-
 
 .Get-Weather:active{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
@@ -138,21 +137,19 @@
 }
 
 .temperature {
-    font-size: 28px;
+    font-size: 25px;
     font-weight: bold;
-    color: #007bff;
-    margin-bottom: 15px;
-    display: inline;
+    color:  rgb(3, 54, 65);
+    margin-bottom: 10px;
     width: 50%;
     margin-right: 15px;
 }
 
 .condition {
     font-style: italic;
-    color: #666;
+    color:  rgb(19, 131, 109);
     margin-bottom: 15px;
     font-size: 20px;
-    /* margin-right: 25px; */
 }
 
 .condition img{
@@ -163,7 +160,7 @@
 
 .wind,
 .humidity {
-    color: #333;
+    color: rgb(3, 54, 65);
     margin-bottom: 15px;
     width: 50%;
     font-size: 20px;
@@ -172,7 +169,7 @@
 .location {
     font-size: 20px;
     font-weight: bold;
-    color: #333;
+    color: rgb(3, 54, 65);
     margin-bottom: 20px;
     margin-top: 20px;
 }
@@ -181,16 +178,109 @@
     margin-bottom: 15px;
     display: inline;
     text-align: right;
-    margin-left: 15px;
+    margin-left: 150px;
     font-size: 20px;
     font-weight: bold;
-    color:black;
+    color: rgb(3, 54, 65);
+    display: inline-block;
 }
 
 .feelsLike{
     font-style: italic;
-    color: #666;
-    margin-top: 10px;
+    color:  rgb(19, 131, 109);
+    margin-top: 5px;
     font-weight: bold;
+    display: inline-block;
 }
 
+/* Style the footer */
+.footer {
+    background-color: rgb(3, 54, 65);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    height: 30px; /* Adjust the height as needed */
+    clear: both; /* Clear floats */
+    position: relative; /* Make the footer relative */
+    bottom: 0; /* Position at the bottom */
+}
+
+/* Style for the form */
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 150px; /* Adjust as needed */
+}
+
+input[type="submit"] {
+    background-color:  rgb(3, 54, 65);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s,color 0.3s;
+}
+
+input[type="submit"]:hover {
+    color: whitesmoke;
+    background-color: rgb(19, 131, 109);
+    border-radius: 5px;
+}
+
+/* Style for the content section */
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color:  rgb(3, 54, 65);
+}
+
+.content h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+  }
+  
+  .left-half,
+  .right-half {
+    width: 50%;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .vertical-line {
+    border-left: 2px solid #6c2a2a; /* Adjust the color and thickness as needed */
+    height: 100%;
+    margin: 0 20px; /* Adjust the margin as needed */
+  }
+  

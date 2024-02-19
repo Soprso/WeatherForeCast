@@ -16,10 +16,7 @@
                     <a href="index.html">Weather</a>
                 </li>
                 <li>
-                    <a href="AboutUs.html">About Us</a>
-                </li>
-                <li>
-                    <a href="Random Quotes.html">Random Quotes</a>
+                    <a href="contact.html">Contact</a>
                 </li>
                 <li>
                     <a href="Login.html">Login</a>
@@ -34,25 +31,32 @@
         <div class="city-textbox">
             <input type="text" class="city-name" id="get-city-name"
             placeholder="Enter city-name">
-        </div>
-        <div class="city-textbox">
             <button id="fetchweather"class="Get-Weather" onclick="getWeather()">
-            <img src="search.svg" alt="FindWeather">
-            </button>
-            <button id="fetchweather"class="Get-Weather" onclick="getWeatherByCoordinates()">
-                <img src="location.svg" alt="FindLocalWeather">
-            </button>
+                <img src="search.svg" alt="FindWeather">
+                </button>
+                <button id="fetchweather"class="Get-Weather" onclick="getWeatherByCoordinates()">
+                    <img src="location.svg" alt="FindLocalWeather">
+                </button>
         </div>
         <div id="getWeatherDetails" class="getWeatherDetails">
-            <div class="temperature"id="temperature"></div>
-            <div class="localTime" id="localTime"></div>
+            <div class="temperature"id="temperature"></div>  
             <div class="feelsLike" id="feelsLike"></div>
+            <div class="localTime" id="localTime"></div>
             <div class="location" id="location"></div>
             <div class="condition" id="condition"></div>
             <div class="wind" id="wind"></div>
             <div class="humidity" id="humidity"></div>
         </div>
     </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div>
+            <!-- Add your footer content here -->
+            <p>&copy; 2024 SoPrSo. All rights reserved.</p>
+        </div>
+    </footer>
     <script ref="javascript" src="Script.js"></script>
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 </body>
 </html>
