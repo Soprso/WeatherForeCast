@@ -1,0 +1,196 @@
+/* Style the navbar */
+.navbar {
+    background-color: rgb(4, 110, 148);
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* background-image: url("clouds.jpg"); */
+    
+    background-size: cover;
+    z-index: 1000;
+}
+
+/* Style the navbar list */
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 20px;
+    padding-right: 20px;
+    text-align: right;
+    padding-bottom: 20px;
+}
+
+/* Style the navbar list items */
+.navbar li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* Style the navbar links */
+.navbar a {
+    color: rgb(250, 250, 250);
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s, background-color 0.3s;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 5px;
+    padding: 5px 10px; /* Adjust padding as needed */
+}
+
+.navbar a:hover {
+    color: rgb(2, 16, 177);
+    background-color: rgb(158, 200, 240);
+    text-decoration: underline;
+    border-radius: 5px;
+}
+
+/* Style the weather widget */
+.weather-widget {
+    margin-top: 65px; /* Adjust margin as needed */
+    background-color: beige;
+    width: 100%;
+    padding-left: 0px;
+    margin-left: 0px;
+    height:auto;
+    padding-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8) ;
+    top:0;
+    left:0;
+}
+
+/* Style the check weather label */
+.check-weather-label {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(7, 2, 55); /* Add a color value */
+}
+
+.city-textbox {
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.city-name {
+    height: 30px;
+    width: 90%; /* Adjust width for mobile */
+    max-width: 500px; /* Set max-width for larger screens */
+    transition: border-color 0.3s,box-shadow 0.3s;
+    border-radius: 5px;
+}
+
+.city-name:hover{
+    border-color: rgb(0, 187, 255);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.city-name:focus{
+    border-color: #00bbff;
+}
+
+.Get-Weather{
+    /* background-image: url("tenor.gif"); */
+    background-color:  rgb(4, 110, 148);
+    width: 50px;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    transition: box-shadow 0.3s;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.Get-Weather img{
+    width: 100%; /* Set image width to fill the button */
+    height: 100%; /* Set image height to fill the button */
+    object-fit: cover;
+}
+
+.Get-Weather:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+
+.Get-Weather:active{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    opacity: 0.7;
+}
+
+.getWeatherDetails{
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    max-width: 500px;
+    margin: auto;
+    text-align: left;
+}
+
+.temperature {
+    font-size: 28px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 15px;
+    display: inline;
+    width: 50%;
+    margin-right: 15px;
+}
+
+.condition {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 20px;
+    /* margin-right: 25px; */
+}
+
+.condition img{
+    height: 200px; 
+    width: 200px; 
+    display: inline-block;
+}
+
+.wind,
+.humidity {
+    color: #333;
+    margin-bottom: 15px;
+    width: 50%;
+    font-size: 20px;
+}
+
+.location {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.localTime{
+    margin-bottom: 15px;
+    display: inline;
+    text-align: right;
+    margin-left: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color:black;
+}
+
+.feelsLike{
+    font-style: italic;
+    color: #666;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
