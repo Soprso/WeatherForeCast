@@ -1,6 +1,11 @@
+
 // function to fetch weather by location
 
 function getWeatherByCoordinates() {
+    var getWeatherDetailsWidget=document.getElementById('getWeatherDetails');
+    if(getWeatherDetailsWidget.style.display==='none'){
+        getWeatherDetailsWidget.style.display='block';
+    }
     // Get the current position of the device
     navigator.geolocation.getCurrentPosition(function(position) {
         // Retrieve the latitude and longitude from the position object
@@ -41,6 +46,10 @@ function getWeatherByCoordinates() {
 } 
 // function to fetch weather by city name
 function getWeather(){
+    var getWeatherDetailsWidget=document.getElementById('getWeatherDetails');
+    if(getWeatherDetailsWidget.style.display==='none'){
+        getWeatherDetailsWidget.style.display='block';
+    }
     const cityName = document.getElementById('get-city-name').value;
     const url = 'https://weatherapi-com.p.rapidapi.com/current.json?q=' + cityName;
     const xhr = new XMLHttpRequest();
@@ -67,6 +76,15 @@ function getWeather(){
     xhr.send();
 
 }
+
+var input = document.getElementById("get-city-name");
+// Add event listener for hitting the enter key
+input.addEventListener("keyup", function(event) {
+    // Check if the 'Enter' key is pressed
+    if (event.keyCode === 13) {
+        getWeather();
+    }
+  });
 
 function displayWeatherInfo(weatherData) {
     const data = JSON.parse(weatherData);
@@ -97,7 +115,7 @@ function displayWeatherInfo(weatherData) {
             const conditionText = 'Condition: ' + currentWeather.condition.text;
             let conditionHTML = conditionText;
         
-            if (currentWeather.condition.text === 'Partly cloudy' || currentWeather.condition.text === 'Partly Cloudy ') {
+            if (currentWeather.condition.text.toLowerCase().replace(/\s+$/, '') === 'partly cloudy') {
                 if(dayOrNight(data.location.localtime)==='day'){
                     conditionHTML += `<img src="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy-day-1.svg" alt="Partly Cloudy Day Icon">`;
                 }
@@ -105,7 +123,7 @@ function displayWeatherInfo(weatherData) {
                     conditionHTML += `<img src="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy-night-1.svg" alt="Partly Cloudy Night Icon">`;
                 }
             }
-            if (currentWeather.condition.text === 'Mist' ||currentWeather.condition.text === 'Cloudy' || currentWeather.condition.text==='Overcast') {
+            if (currentWeather.condition.text.toLowerCase().replace(/\s+$/, '') === 'mist' ||currentWeather.condition.text.toLowerCase().replace(/\s+$/, '') === 'cloudy' || currentWeather.condition.text.toLowerCase().replace(/\s+$/, '')==='overcast') {
                 if(dayOrNight(data.location.localtime)==='day'){
                     conditionHTML += `<img src="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy.svg" alt="Cloudy Day Icon">`;
                 }
@@ -113,7 +131,7 @@ function displayWeatherInfo(weatherData) {
                     conditionHTML += `<img src="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/cloudy.svg" alt="Cloudy Night Icon">`;
                 }
             }
-            if (currentWeather.condition.text === 'Clear'||currentWeather.condition.text === 'Sunny') {
+            if (currentWeather.condition.text.toLowerCase().replace(/\s+$/, '') === 'clear'||currentWeather.condition.text.toLowerCase().replace(/\s+$/, '') === 'sunny') {
                 if(dayOrNight(data.location.localtime)==='day'){
                     conditionHTML += `<img src="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/day.svg" alt="Clear Day Icon">`;
                 }
@@ -122,7 +140,7 @@ function displayWeatherInfo(weatherData) {
                 }
             }
 
-            if (currentWeather.condition.text === 'Light rain shower'||currentWeather.condition.text === 'Patchy rain nearby'||currentWeather.condition.text==='Light freezing rain') {
+            if (currentWeather.condition.text.toLowerCase().replace(/\s+$/, '') === 'light rain shower'||currentWeather.condition.text.toLowerCase().replace(/\s+$/, '') === 'patchy rain nearby'||currentWeather.condition.text.toLowerCase().replace(/\s+$/, '')==='light freezing rain') {
                 if(dayOrNight(data.location.localtime)==='day'){
                     conditionHTML += `<img src="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/rainy-1.svg" alt="Light Rain Day Icon">`;
                 }

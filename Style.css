@@ -32,7 +32,7 @@
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
     border-radius: 5px;
-    padding: 10px 15px; /* Adjust padding as needed */
+    padding: 10px 7px; /* Adjust padding as needed */
     transition: color 0.3s, background-color 0.3s;
 }
 
@@ -43,51 +43,71 @@
 }
 
 /* Style the weather widget */
-.weather-widget {
+/* .weather-widget {
     margin-top: 50px; /* Adjust margin as needed */
     /* background-color: beige; */
-    width: 100%;
+    /* width: 100%;
     padding-left: 0px;
     margin-left: 0px;
     height:auto;
-    padding-bottom: 20px;
+    padding-bottom: 20px; */
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); */
-    text-align: center;
-    margin-bottom: 100px;
-}
+    /* text-align: center;
+    margin-bottom: 100px; */
+    /* display: block; */
+/* } */ 
 
 /* Style the check weather label */
 .check-weather-label {
     padding-top: 10px;
+    margin-top: 40px;
     padding-bottom: 20px;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
+    font-size: 80px;
     font-weight: bold;
     color:  rgb(3, 54, 65); /* Add a color value */
+    transition: color 0.3s;
 }
 
+.check-weather-label:hover{
+    color:  rgb(19, 131, 109);
+    cursor: pointer;
+}
 
+/* 
 .city-textbox {
     text-align: center;
     margin-bottom: 10px;
     padding-bottom: 10px;
-    display: inline-block;
-    width: 500px;
+    /* display: inline-flex; */
+    /* width: 500px;
     width: 60%;
+    position: relative; */
+/* } */ 
+
+.separate-box{
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .city-name {
-    height: 30px;
+    height: 50px;
     width: 50%; /* Adjust width for mobile */
     max-width: 500px; /* Set max-width for larger screens */
-    transition: border-color 0.3s,box-shadow 0.3s;
-    border-radius: 5px;
     text-align: left;
+    font-size: 15px;
     padding-top: 0px;
     margin-top: 0px;
+    /* margin-bottom: 10px; */
+    transition: border-color 0.3s,box-shadow 0.3s;
 }
 
+.search-buttons{
+    margin-bottom: 20px;
+    text-align: center;
+}
+.messagebox:hover,
 .city-name:hover{
     border-color:  rgb(3, 54, 65);
     border-width: 2px;
@@ -100,15 +120,16 @@
 
 .Get-Weather{
     background-color:white;
-    width: 40px;
+    width: 50px;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
     color: white;
     font-size: 18px;
-    transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s,border-width 0.3s;
     margin-left: 5px;
     margin-right: 5px;
-    display: inline-block;
+    border-width: 0.25px;
+    /* display: inline-block; */
 }
 
 .Get-Weather img{
@@ -119,6 +140,8 @@
 
 .Get-Weather:hover{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    border-width: 3px;
+    background-color: rgb(19, 131, 109) ;
 }
 
 .Get-Weather:active{
@@ -165,6 +188,7 @@
     margin-bottom: 15px;
     width: 50%;
     font-size: 20px;
+    margin-top: 15px;
 }
 
 .location {
@@ -176,7 +200,7 @@
 }
 
 .localTime{
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     display: inline;
     text-align: right;
     margin-left: 150px;
@@ -189,7 +213,7 @@
 .feelsLike{
     font-style: italic;
     color:  rgb(19, 131, 109);
-    margin-top: 5px;
+    margin-top: 15px;
     font-weight: bold;
     display: inline-block;
 }
@@ -220,7 +244,7 @@ label {
 input[type="text"],
 input[type="email"],
 textarea {
-    width: 100%;
+    width: 70%;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -272,16 +296,84 @@ input[type="submit"]:hover {
     display: flex;
   }
   
-  .left-half,
+  .left-half{
+    width: 80%;
+    padding: 20px;
+    margin-top: 20px;
+  }
   .right-half {
-    width: 50%;
+    width: 20%;
     padding: 20px;
     margin-top: 20px;
   }
   
   .vertical-line {
-    border-left: 2px solid #6c2a2a; /* Adjust the color and thickness as needed */
-    height: 100%;
-    margin: 0 20px; /* Adjust the margin as needed */
-  }
+    width: 2px; /* Adjust the width of the line */
+    background-color: #ddd; /* Color of the line */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
   
+
+  /* Style for the share forecast section */
+.share-forecast {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.share-forecast h2 {
+    font-size: 24px;
+    color: rgb(3, 54, 65);
+    margin-bottom: 20px;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.share-button {
+    background-color: rgb(3, 54, 65);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.share-button:hover {
+    background-color: rgb(19, 131, 109);
+    opacity: 0.6;
+}
+
+.share-button:active{
+    opacity: 0.5;
+}
+
+/* Adjustments for specific share buttons */
+.share-button.facebook {
+    background-color: #3b5998;
+}
+
+.share-button.twitter {
+    background-color: #1da1f2;
+}
+
+.share-button.linkedin {
+    background-color: #0077b5;
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: #ddd; /* Color of the line */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    margin-top: 20px; /* Adjust the space between sections */
+}
+
