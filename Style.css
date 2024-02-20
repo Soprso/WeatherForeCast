@@ -93,7 +93,7 @@
 
 .city-name {
     height: 50px;
-    width: 50%; /* Adjust width for mobile */
+    width: 100%; /* Adjust width for mobile */
     max-width: 500px; /* Set max-width for larger screens */
     text-align: left;
     font-size: 15px;
@@ -136,7 +136,7 @@
     width: 100%; /* Set image width to fill the button */
     height: 100%; /* Set image height to fill the button */
     object-fit: cover;
-    padding-top: 2px;
+    padding-top: 3.5px;
 }
 
 .Get-Weather:hover{
