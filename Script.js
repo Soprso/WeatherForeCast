@@ -1,3 +1,61 @@
+//function to dynamically load search results
+const searchInput = document.getElementById('get-city-name');
+const searchResults = document.getElementById('searchResults');
+
+// Event listener for input changes
+searchInput.addEventListener('input', function() {
+    const inputValue = searchInput.value.toLowerCase(); // Convert input value to lowercase
+
+    // Clear previous search results
+    searchResults.innerHTML = '';
+
+    // Fetch cities from cities.txt
+    fetch('cities.txt')
+        .then(response => response.text())
+        .then(text => {
+            // Split the text into an array of city names
+            const cities = text.split('\n');
+
+            // Filter cities based on user input
+            const filteredCities = cities.filter(city => {
+                return city.toLowerCase().includes(inputValue); // Filter cities whose names contain the input
+            });
+
+            // Display search results
+            filteredCities.forEach(city => {
+                const li = document.createElement('li');
+                li.textContent = city;
+                li.addEventListener('click', function() {
+                    // Set input value to the clicked city name
+                    searchInput.value = city;
+                    // Hide the dropdown
+                    searchResults.style.display = 'none';
+                    getWeather();
+                });
+                searchResults.appendChild(li);
+            });
+
+            // Display the dropdown if there are search results
+            if (filteredCities.length > 0) {
+                searchResults.style.display = 'block';
+            } else {
+                searchResults.style.display = 'none';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching cities:', error);
+        });
+});
+
+// Event listener for clicks outside the dropdown
+document.addEventListener('click', function(event) {
+    // Check if the clicked element is outside the dropdown and input
+    if (!searchResults.contains(event.target) && event.target !== searchInput) {
+        // Hide the dropdown
+        searchResults.style.display = 'none';
+    }
+});
+
 
 // function to fetch weather by location
 

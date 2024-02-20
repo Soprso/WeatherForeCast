@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>We-4-Cast</title>
     <link rel="stylesheet" href="Style.css"/>
-   
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
     <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
 </head>
 <body>
@@ -31,13 +31,14 @@
         <div class="separate-box">
             <input type="text" class="city-name" style="border-radius: 30px;padding-left: 30px;" id="get-city-name"
             placeholder="Search for City/State/Country or Co-ordinates....">
+            <ul id="searchResults" style="text-align: center;"></ul>
         </div>
             <div class="search-buttons">
                 <button id="fetchweather"class="Get-Weather" onclick="getWeather()">
                     <img src="search.svg" alt="FindWeather">
                 </button>
                 <button id="fetchweather"class="Get-Weather" onclick="getWeatherByCoordinates()">
-                    <img src="location.gif" alt="FindLocalWeather">
+                    <img src="location.svg" alt="FindLocalWeather">
                 </button>
             </div>
         <div id="getWeatherDetails" class="getWeatherDetails" style="display: none;">
@@ -75,6 +76,8 @@
     
     <script ref="javascript" src="Script.js"></script>
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+        <!-- Include SheetJS library -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js"></script> -->
 </body>
 <!-- Footer Section -->
 <section class="footer">

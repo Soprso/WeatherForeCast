@@ -88,7 +88,7 @@
 /* } */ 
 
 .separate-box{
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     text-align: center;
 }
 
@@ -117,17 +117,19 @@
 
 .city-name:focus{
     border-color: rgb(3, 54, 65);
+    background-color: #deeccf;
 }
 
 .Get-Weather{
     background-color:rgb(3, 54, 65);
     width: 50px;
-    height: 40px;
+    height: 45px;
     border-radius: 5px;
     font-size: 18px;
     transition: box-shadow 0.3s,border-width 0.3s;
     margin-left: 5px;
     margin-right: 5px;
+    margin-top: 20px;
     border-width: 0px;
     /* display: inline-block; */
 }
@@ -258,6 +260,7 @@ form {
 label {
     display: block;
     margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 input[type="text"],
@@ -265,7 +268,7 @@ input[type="email"],
 textarea {
     width: 70%;
     padding: 8px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -284,6 +287,7 @@ input[type="submit"] {
     cursor: pointer;
     margin-bottom: 20px;
     transition: background-color 0.3s,color 0.3s;
+    margin-top: 10px;
 }
 
 input[type="submit"]:hover {
@@ -406,6 +410,49 @@ input[type="submit"]:hover {
     background-color: #ddd; /* Color of the line */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
     margin-top: 20px; /* Adjust the space between sections */
+}
+
+/* search results------------------------------------------------------------------------------------------------------------ */
+#searchContainer {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto; /* Align to center */
+}
+
+#searchInput {
+    width: 300px; /* Set the width of the input field */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#searchResults {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 50%;
+    position: absolute;
+    background-color:  #deeccf;
+    border: 1px solid #ddd;
+    max-height: 200px; /* Adjust height as needed */
+    overflow-y: auto;
+    margin-top: 0px;
+    z-index: 1;
+    display: none; /* Initially hide the dropdown */
+    left: 50%; /* Position the dropdown at 50% from the left */
+    transform: translateX(-50%); /* Center the dropdown */
+}
+
+#searchResults li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid;
+}
+
+#searchResults li:hover {
+    background-color:rgb(3, 54, 65);
+    color: white;
 }
 
 /* Login Page------------------------------------------------------------------------------------------------ */
