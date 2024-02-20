@@ -121,9 +121,8 @@
 .Get-Weather{
     background-color:rgb(3, 54, 65);
     width: 50px;
-    height: 100%;
+    height: 40px;
     border-radius: 5px;
-    color: white;
     font-size: 18px;
     transition: box-shadow 0.3s,border-width 0.3s;
     margin-left: 5px;
@@ -135,8 +134,8 @@
 .Get-Weather img{
     width: 100%; /* Set image width to fill the button */
     height: 100%; /* Set image height to fill the button */
-    object-fit: cover;
-    padding-top: 3.5px;
+    background-size: cover;
+    background-position: center center;
 }
 
 .Get-Weather:hover{
@@ -176,12 +175,18 @@
     color:  rgb(19, 131, 109);
     margin-bottom: 15px;
     font-size: 20px;
+    margin-top: 15px;
+    font-weight: bold;
 }
 
-.condition img{
-    height: 200px; 
-    width: 200px; 
-    display: inline-block;
+.conditionicon{
+    text-align: center;
+}
+.conditionicon img{
+    width: 50%; /* Set image width to fill the button */
+    height: 50%; /* Set image height to fill the button */
+    background-size: cover;
+    background-position: center center;
 }
 
 .wind,

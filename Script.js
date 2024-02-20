@@ -100,6 +100,7 @@ function displayWeatherInfo(weatherData) {
         const localTimeElement=document.getElementById('localTime');
         const feelsLikeElement=document.getElementById('feelsLike');
         const locationElement = document.getElementById('location');
+        const conditionIconElement = document.getElementById('conditionicon');
         const conditionElement = document.getElementById('condition');
         const windElement = document.getElementById('wind');
         const humidityElement = document.getElementById('humidity');
@@ -111,8 +112,17 @@ function displayWeatherInfo(weatherData) {
         }
         temperatureElement.textContent = 'Temperature: ' + currentWeather.temp_c + ' °C';
         localTimeElement.textContent=retunDay(data.location.localtime)+', '+ formatTime12Hour(data.location.localtime);
+        conditionIconElement.textContent='';
+        if(conditionElement){
+            conditionElement.textContent = 'Condition: ' + currentWeather.condition.text;
+        }
+        else {
+            console.error('Element with ID "condition" not found.');
+        }
+ 
+
         if (conditionElement) {
-            const conditionText = 'Condition: ' + currentWeather.condition.text;
+            const conditionText = conditionIconElement.textContent;
             let conditionHTML = conditionText;
         
             if (currentWeather.condition.text.toLowerCase().replace(/\s+$/, '') === 'partly cloudy') {
@@ -148,7 +158,15 @@ function displayWeatherInfo(weatherData) {
                     conditionHTML += `<img src="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/rainy-5.svg" alt="Light Rain Night Icon">`;
                 }
             }
-            conditionElement.innerHTML = conditionHTML;
+            if (currentWeather.condition.text.toLowerCase().replace(/\s+$/, '') === 'patchy light rain in area with thunder') {
+                if(dayOrNight(data.location.localtime)==='day'){
+                    conditionHTML += `<img src="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/thunder.svg" alt="Light Rain-thunder Day Icon">`;
+                }
+                else{
+                    conditionHTML += `<img src="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/thunder.svg" alt="Light Rain-thunder Night Icon">`;
+                }
+            }
+            conditionIconElement.innerHTML = conditionHTML;
         } else {
             console.error('Element with ID "condition" not found.');
         }
