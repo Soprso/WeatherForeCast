@@ -19,7 +19,7 @@
                     <a href="contact.html">Contact</a>
                 </li>
                 <li>
-                    <a href="Login.html">Login</a>
+                    <a href="Login.html">Sign In</a>
                 </li>
             </ul>
         </div>
@@ -35,13 +35,11 @@
             <div class="search-buttons">
                 <button id="fetchweather"class="Get-Weather" onclick="getWeather()">
                     <img src="search.svg" alt="FindWeather">
-                    </button>
-                    <button id="fetchweather"class="Get-Weather" onclick="getWeatherByCoordinates()">
-                        <img src="location.gif" alt="FindLocalWeather">
-                    </button>
+                </button>
+                <button id="fetchweather"class="Get-Weather" onclick="getWeatherByCoordinates()">
+                    <img src="location.gif" alt="FindLocalWeather">
+                </button>
             </div>
-         
-
         <div id="getWeatherDetails" class="getWeatherDetails" style="display: none;">
             <div class="temperature"id="temperature"></div> 
             <div class="separator"></div> 
@@ -57,7 +55,6 @@
             <div class="wind" id="wind"></div>
             <div class="separator"></div>
             <div class="humidity" id="humidity"></div>
-
         </div>
     </section>
 
@@ -75,14 +72,15 @@
             </button>
         </div>
     </section>
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div>
-            <!-- Add your footer content here -->
-            <p style="margin-bottom: 5px;">&copy; 2024 SoPrSo. All rights reserved.</p>
-        </div>
-    </footer>
+    
     <script ref="javascript" src="Script.js"></script>
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 </body>
+<!-- Footer Section -->
+<section class="footer">
+    <div>
+        <!-- Add your footer content here -->
+        <p>&copy; 2024 SoPrSo. All rights reserved.</p>
+    </div>
+</section>
 </html>

@@ -114,7 +114,7 @@ function displayWeatherInfo(weatherData) {
         localTimeElement.textContent=retunDay(data.location.localtime)+', '+ formatTime12Hour(data.location.localtime);
         conditionIconElement.textContent='';
         if(conditionElement){
-            conditionElement.textContent = 'Condition: ' + currentWeather.condition.text;
+            conditionElement.textContent = 'Weather Condition: ' + currentWeather.condition.text;
         }
         else {
             console.error('Element with ID "condition" not found.');
