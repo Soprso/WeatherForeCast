@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>We-4-Cast</title>
-    <link rel="stylesheet" href="Style.css"/>
+    <link rel="stylesheet" href="Style.css" id="theme">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
     <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
 </head>
 <body>
     <section class="navbar" >
-        <div>
-            <ul>
+        <div class="containertoggle">
+            <label class="switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+            <ul >
                 <li>
                     <a href="index.html">Weather</a>
                 </li>
@@ -22,7 +27,6 @@
                     <a href="Login.html">Sign In</a>
                 </li>
             </ul>
-        </div>
     </section >
     <section class="weather-widget">
         <div class="check-weather-label">
@@ -31,6 +35,7 @@
         <div class="separate-box">
             <input type="text" class="city-name" style="border-radius: 30px;padding-left: 30px;" id="get-city-name"
             placeholder="Search for City/State/Country or Co-ordinates....">
+            <button class="clear-button" onclick="clearInput()">X</button>
             <ul id="searchResults" style="text-align: center;"></ul>
         </div>
             <div class="search-buttons">
@@ -75,6 +80,7 @@
     </section>
     
     <script ref="javascript" src="Script.js"></script>
+    <script src="theme-toggle.js"></script>
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
         <!-- Include SheetJS library -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js"></script> -->

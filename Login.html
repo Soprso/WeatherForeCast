@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="Style.css" id="theme">
 </head>
 <body>
     <section class="navbar" >
-        <div>
-            <ul>
+        <div class="containertoggle">
+            <label class="switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="slider round"></span>
+            </label>
+        </div>
+            <ul >
                 <li>
                     <a href="index.html">Weather</a>
                 </li>
@@ -20,7 +25,6 @@
                     <a href="Login.html">Sign In</a>
                 </li>
             </ul>
-        </div>
     </section >
     <section class="getWeatherDetails" style="margin-top: 100px;margin-bottom: 100px;">
         <div class="content">
@@ -45,6 +49,7 @@
         </div>
     </section>
     <script ref="javascript" src="Script.js"></script>
+    <script src="theme-toggle.js"></script>
 </body>
 <!-- Footer Section -->
 <section class="footer">
