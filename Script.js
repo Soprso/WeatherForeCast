@@ -26627,13 +26627,14 @@ function displayWeatherInfo(weatherData) {
         const conditionElement = document.getElementById('condition');
         const windElement = document.getElementById('wind');
         const humidityElement = document.getElementById('humidity');
-        locationElement.textContent = 'Location: ' + data.location.name + ', ' + data.location.region + ', ' + data.location.country;
+        locationElement.textContent = data.location.name + ', ' + data.location.region + ', ' + data.location.country;
         if (feelsLikeElement) {
             feelsLikeElement.textContent = 'Feels Like: ' + currentWeather.feelslike_c + ' °C';
         } else {
             console.error('Element with ID "feelsLike" not found.');
         }
-        temperatureElement.textContent = 'Temperature: ' + currentWeather.temp_c + ' °C';
+        temperatureElement.textContent = currentWeather.temp_c + ' °C';
+        temperatureElement.innerHTML+=`<img src="temperature.gif" alt="temperature-icon"; style="margin-left: 15px;margin-top: 10px">`;
         localTimeElement.textContent=retunDay(data.location.localtime)+', '+ formatTime12Hour(data.location.localtime);
         conditionIconElement.textContent='';
         if(conditionElement){
@@ -26694,8 +26695,10 @@ function displayWeatherInfo(weatherData) {
             console.error('Element with ID "condition" not found.');
         }
 
-        windElement.textContent = 'Wind: ' + currentWeather.wind_kph + ' kph ' + currentWeather.wind_dir;
+        windElement.textContent = 'Wind Speed: ' + currentWeather.wind_kph + ' kph ' + currentWeather.wind_dir;
+        windElement.innerHTML+=`<img src="wind.gif" alt="wind-icon"; style="margin-left: 15px">`;
         humidityElement.textContent = 'Humidity: ' + currentWeather.humidity + '%';
+        humidityElement.innerHTML+=`<img src="humidity.png" alt="humidity-icon"; style="margin-left: 15px">`;
     } else {
         console.error('Invalid weather data format:', data);
     }
