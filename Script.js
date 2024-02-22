@@ -26902,7 +26902,7 @@ function fetchHourlyForecast(latitude, longitude) {
                 const hourlyElement = document.getElementById(`hour${String(i).padStart(2, '0')}`);
                 if (hourlyElement) {
                     // Display the day, time, temperature, and condition in the HTML element
-                    hourlyElement.innerHTML = `${day}, ${time12Hour}<br><img src="${hourData.icon}.svg" alt="${hourData.conditions}"><br>${hourData.temp}°C<br>${hourData.conditions}`;
+                    hourlyElement.innerHTML = `${day}<br>${time12Hour}<br><img src="${hourData.icon}.svg" alt="${hourData.conditions}"><br>${hourData.temp}°C<br>${hourData.conditions}`;
                 }
                 //createGraph(hourlyForecastArray);
             }
