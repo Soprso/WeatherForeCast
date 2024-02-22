@@ -106,7 +106,7 @@ body {
 
 .city-name {
     height: 45px;
-    color:  whitesmoke;
+    color: black;
     background-color: rgb(248, 247, 217);
     width: 100%; /* Adjust width for mobile */
     max-width: 700px; /* Set max-width for larger screens */
@@ -143,12 +143,14 @@ body {
     border-color: #333;
     background-color:#837254;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    color: whitesmoke;
 }
 
 
 .city-name:focus::placeholder{
     color: whitesmoke;
 }
+
 
 .Get-Weather{
     background-color:#333;
@@ -212,22 +214,43 @@ body {
     text-shadow: 2px 2px 4px rgb(0, 0, 0);
     margin-bottom: 15px;
     font-size: 20px;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     font-weight: bold;
 }
 
 .conditionicon{
     text-align: center;
 }
-.conditionicon img{
-    width: 50%; /* Set image width to fill the button */
-    height: 50%; /* Set image height to fill the button */
+.conditionicon img {
+    width: 40%; /* Set the width of the image */
+    height: 40%; /* Set the height of the image */
     background-size: cover;
     background-position: center center;
 }
 
+ /* CSS for the Hourly Weather Forecast Slider */
+ .hourly-forecast-container {
+    width: 100%; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent forecast items from wrapping */
+    scrollbar-width: thin; /* Set the scrollbar width */
+    scrollbar-color: #837254 whitesmoke; /* Set the scrollbar color */
+    margin-top: 20px;
+}
+
+.hourly-forecast-item {
+    width: 100px; /* Adjust item width as needed */
+    text-align: center; /* Center text */
+    display: inline-block; /* Display items in a row */
+    background-color: #f2f2f2; /* Example background color */
+    padding: 1px; /* Example padding */
+    margin: 1px; /* Example margin between items */
+    border-radius: 5px; /* Example border radius */
+}
+
 .wind,
-.humidity {
+.humidity,.gust,.cloudcover,.uv {
     color: whitesmoke;
     margin-bottom: 15px;
     width: 100%;
@@ -236,12 +259,17 @@ body {
     font-weight: bold;
 }
 
+
+.gust{
+    font-size: 15px;
+}
+
 .location {
     font-size: 20px;
     font-weight: bold;
     color: whitesmoke;
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: center;
 }
 
