@@ -231,7 +231,7 @@ body {
  /* CSS for the Hourly Weather Forecast Slider */
  .hourly-forecast-container {
     width: 100%; /* Adjust width as needed */
-    height: 150px; /* Adjust height as needed */
+    height: 200px; /* Adjust height as needed */
     overflow-x: auto; /* Enable horizontal scrolling */
     white-space: nowrap; /* Prevent forecast items from wrapping */
     scrollbar-width: thin; /* Set the scrollbar width */
@@ -243,11 +243,19 @@ body {
     width: 100px; /* Adjust item width as needed */
     text-align: center; /* Center text */
     display: inline-block; /* Display items in a row */
-    background-color: #f2f2f2; /* Example background color */
-    padding: 1px; /* Example padding */
-    margin: 1px; /* Example margin between items */
+    background-color:  #837254; /* Example background color */
+    padding: 3px; /* Example padding */
+    margin: 3px; /* Example margin between items */
     border-radius: 5px; /* Example border radius */
+    color: whitesmoke;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    vertical-align: top;
 }
+
+/* .hourly-forecast-item:hover{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+} */
 
 .wind,
 .humidity,.gust,.cloudcover,.uv {

@@ -26704,7 +26704,7 @@ function displayWeatherInfo(weatherData) {
                     conditionHTML += `<img src="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/rainy-5.svg" alt="Light Rain Night Icon">`;
                 }
             }
-            if (currentWeather.condition.text.toLowerCase().replace(/\s+$/, '') === 'patchy light rain in area with thunder') {
+            if (currentWeather.condition.text.toLowerCase().replace(/\s+$/, '') === 'patchy light rain in area with thunder' ||currentWeather.condition.text.toLowerCase().replace(/\s+$/, '') === 'moderate or heavy rain with thunder' ||currentWeather.condition.text.toLowerCase().replace(/\s+$/, '') === 'patchy light rain with thunder') {
                 if(dayOrNight(data.location.localtime)==='day'){
                     conditionHTML += `<img src="https://www.amcharts.com/wp-content/themes/amcharts4/css/img/icons/weather/animated/thunder.svg" alt="Light Rain-thunder Day Icon">`;
                 }
@@ -26859,18 +26859,30 @@ container.addEventListener('wheel', (event) => {
 
 
 
-// Function to fetch and display hourly forecast
 function fetchHourlyForecast(latitude, longitude) {
     // Construct the URL with custom latitude and longitude
     const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${latitude}%2C${longitude}?unitGroup=metric&key=FE29JLDPPFW368TH93TMPZJRV&contentType=json`;
+
+    // Array to store hourly forecast data for the first day
+    const hourlyForecastArray = [];
 
     // Fetch data from the API
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
+            // Get the hourly data for the first day
+            const hourlyData = data.days[0].hours;
+
             // Iterate over each hour of the day
             for (let i = 0; i < 24; i++) {
-                const hourData = data.days[0].hours[i];
+                const hourData = hourlyData[i];
+
+                // Store the hour's data in the array
+                hourlyForecastArray.push({
+                    time: hourData.datetime,
+                    temperature: hourData.temp,
+                    condition: hourData.conditions
+                });
 
                 // Convert datetime to 12-hour format with AM and PM
                 const time24Hour = parseInt(hourData.datetime.split(':')[0]);
@@ -26885,15 +26897,17 @@ function fetchHourlyForecast(latitude, longitude) {
                 const hourlyElement = document.getElementById(`hour${String(i).padStart(2, '0')}`);
                 if (hourlyElement) {
                     // Display the time, temperature, and condition in the HTML element
-                    hourlyElement.innerHTML = `${time12Hour}<br><img src="${hourData.icon}.svg" alt="${hourData.conditions}"><br>${hourData.temp}°C`;
+                    hourlyElement.innerHTML = `${time12Hour}<br><img src="${hourData.icon}.svg" alt="${hourData.conditions}"><br>${hourData.temp}°C<br>${hourData.conditions}`;
                 }
+                //createGraph(hourlyForecastArray);
             }
         })
         .catch(error => {
             console.error('Error fetching data:', error);
         });
+
+         // Return the array containing hourly forecast data
 }
 
-// Call the function with custom latitude and longitude values
-fetchHourlyForecast(35, 65); // Example latitude and longitude
+
 
