@@ -26473,6 +26473,7 @@ const cities= [
 //function to dynamically load search results
 const searchInput = document.getElementById('get-city-name');
 const searchResults = document.getElementById('searchResults');
+let weatherData='';
 
 // Event listener for input changes
 searchInput.addEventListener('input', function() {
@@ -26547,7 +26548,9 @@ function getWeatherByCoordinates() {
         xhr.addEventListener('readystatechange', function () {
             if (this.readyState === this.DONE) {
                 if (this.status === 200) {
+                    weatherData=this.responseText;
                     displayWeatherInfo(this.responseText);
+                    fetchHourlyForecast(latitude, longitude);
                 } else {
                     console.error('Error fetching weather data. Status:', this.status);
                     alert("Sorry!! We don't have this location's data at this moment!!");
@@ -26578,6 +26581,8 @@ function getWeather(){
     const cityName = document.getElementById('get-city-name').value;
     if(cityName===''){
         alert("Please enter a location!");
+        getWeatherByCoordinates();
+        alert("Weather for Current Location will be displayed!")
     }
     else{
         const url = 'https://weatherapi-com.p.rapidapi.com/current.json?q=' + cityName;
@@ -26588,6 +26593,7 @@ function getWeather(){
         if (this.readyState === this.DONE) {
             if (this.status === 200) {
                 displayWeatherInfo(this.responseText);
+                fetchHourlyForecast(JSON.parse(this.responseText).location.lat,JSON.parse(this.responseText).location.lon);
             } else {
                 console.error('Error fetching weather data. Status:', this.status);
                 alert("Sorry!! We don't have this location's data at this moment!!");
@@ -26635,6 +26641,9 @@ function displayWeatherInfo(weatherData) {
         const conditionIconElement = document.getElementById('conditionicon');
         const conditionElement = document.getElementById('condition');
         const windElement = document.getElementById('wind');
+        const gustElement= document.getElementById('gust');
+        const cloudCoverElement= document.getElementById('cloudcover');
+        const uvElement= document.getElementById('uv');
         const humidityElement = document.getElementById('humidity');
         locationElement.textContent = data.location.name + ', ' + data.location.region + ', ' + data.location.country;
         if (feelsLikeElement) {
@@ -26642,6 +26651,10 @@ function displayWeatherInfo(weatherData) {
         } else {
             console.error('Element with ID "feelsLike" not found.');
         }
+        gustElement.textContent='Gust Speed: '+currentWeather.gust_kph +'kph';
+        cloudCoverElement.textContent='Cloud Cover(%): '+ currentWeather.cloud;
+        cloudCoverElement.innerHTML+=`<img src="cloudcover.svg" alt="wind-icon"; style="margin-left: 15px">`;
+        uvElement.textContent='UV index: '+currentWeather.uv;
         temperatureElement.textContent = currentWeather.temp_c + ' °C';
         temperatureElement.innerHTML+=`<img src="temperature.gif" alt="temperature-icon"; style="margin-left: 15px;margin-top: 10px">`;
         localTimeElement.textContent=retunDay(data.location.localtime)+', '+ formatTime12Hour(data.location.localtime);
@@ -26783,4 +26796,104 @@ function dayOrNight(dateTimeString){
         return 'night';
     }
 }
+
+// Function to handle the onclick event of the share button
+function shareWeatherToFacebookOnClick() {
+    // Check if weatherData is available
+    if (typeof weatherData === 'undefined') {
+        alert("Please get the weather report first before sharing.");
+        return;
+    }
+
+    // Share weather data to Facebook
+    shareWeatherToFacebook(weatherData);
+}
+
+// Function to share weather details to Facebook
+function shareWeatherToFacebook(weatherData) {
+    // Check if weatherData is provided and is not empty
+    if (!weatherData || Object.keys(weatherData).length === 0) {
+        alert("Please get the weather report first before sharing.");
+        return;
+    }
+
+    // Convert JSON weather data to readable text format
+    const formattedWeather = formatWeatherData(weatherData);
+
+    // Check if the browser supports sharing via Facebook
+    if (navigator.share) {
+        navigator.share({
+            title: 'Weather Report',
+            text: formattedWeather,
+            url: 'https://soprso.github.io/WeatherForeCast/index.html', // Replace with your weather website URL
+        })
+        .then(() => console.log('Weather shared successfully'))
+        .catch((error) => console.error('Error sharing weather:', error));
+    } else {
+        // If sharing to Facebook is not supported, provide fallback option
+        const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://your-weather-website.com')}&quote=${encodeURIComponent(formattedWeather)}`;
+        window.open(facebookShareUrl, '_blank');
+    }
+}
+
+// Function to format weather data into readable text format
+function formatWeatherData(weatherData) {
+    // Extract relevant information from weatherData
+    const location = JSON.parse(weatherData).location.name;
+    const temperature = JSON.parse(weatherData).current.temp_c + '°C';
+    
+    // Construct the formatted text
+    const formattedWeather = `Location: ${location}\nTemperature: ${temperature}`;
+
+    return formattedWeather;
+}
+
+
+
+const container = document.getElementById('hourlyForecast');
+
+container.addEventListener('wheel', (event) => {
+    container.scrollLeft += event.deltaY;
+    event.preventDefault();
+});
+
+
+
+// Function to fetch and display hourly forecast
+function fetchHourlyForecast(latitude, longitude) {
+    // Construct the URL with custom latitude and longitude
+    const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${latitude}%2C${longitude}?unitGroup=metric&key=FE29JLDPPFW368TH93TMPZJRV&contentType=json`;
+
+    // Fetch data from the API
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Iterate over each hour of the day
+            for (let i = 0; i < 24; i++) {
+                const hourData = data.days[0].hours[i];
+
+                // Convert datetime to 12-hour format with AM and PM
+                const time24Hour = parseInt(hourData.datetime.split(':')[0]);
+                let hours12 = (time24Hour + 11) % 12 + 1;
+                const amPm = time24Hour >= 12 ? 'PM' : 'AM';
+                if (hours12 < 10) {
+                    hours12 = '0' + hours12; // Add leading zero for single-digit hours
+                }
+                const time12Hour = hours12 + ':00 ' + amPm;
+
+                // Get the HTML element corresponding to the hour
+                const hourlyElement = document.getElementById(`hour${String(i).padStart(2, '0')}`);
+                if (hourlyElement) {
+                    // Display the time, temperature, and condition in the HTML element
+                    hourlyElement.innerHTML = `${time12Hour}<br><img src="${hourData.icon}.svg" alt="${hourData.conditions}"><br>${hourData.temp}°C`;
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+}
+
+// Call the function with custom latitude and longitude values
+fetchHourlyForecast(35, 65); // Example latitude and longitude
 

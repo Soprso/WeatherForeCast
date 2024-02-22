@@ -198,22 +198,23 @@
     text-shadow: 2px 2px 4px rgba(49, 101, 81, 0.5);
     margin-bottom: 15px;
     font-size: 20px;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     font-weight: bold;
 }
 
 .conditionicon{
     text-align: center;
+
 }
 .conditionicon img{
-    width: 50%; /* Set image width to fill the button */
-    height: 50%; /* Set image height to fill the button */
+    width: 40%; /* Set image width to fill the button */
+    height: 40%; /* Set image height to fill the button */
     background-size: cover;
     background-position: center center;
 }
 
 .wind,
-.humidity {
+.humidity,.gust,.cloudcover,.uv {
     color: rgb(3, 54, 65);
     margin-bottom: 15px;
     width: 100%;
@@ -222,13 +223,17 @@
     font-weight: bold;
 }
 
+.gust{
+    font-size: 15px;
+}
+
 
 .location {
     font-size: 20px;
     font-weight: bold;
     color: rgb(3, 54, 65);
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -427,10 +432,34 @@ input[type="submit"]:hover {
 .separator {
     width: 100%;
     height: 1px;
-    background-color: #ddd; /* Color of the line */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8); /* Shadow effect */
+    background-color: #3a3838; /* Color of the line */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1); /* Shadow effect */
     margin-top: 20px; /* Adjust the space between sections */
+    margin-bottom: 5px;
 }
+
+  /* CSS for the Hourly Weather Forecast Slider */
+  .hourly-forecast-container {
+    width: 100%; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent forecast items from wrapping */
+    scrollbar-width: thin; /* Set the scrollbar width */
+    scrollbar-color:  #deeccf rgb(3, 54, 65) ; /* Set the scrollbar color */
+    margin-top: 20px;
+}
+
+.hourly-forecast-item {
+    width: 100px; /* Adjust item width as needed */
+    text-align: center; /* Center text */
+    display: inline-block; /* Display items in a row */
+    background-color: #f2f2f2; /* Example background color */
+    padding: 1px; /* Example padding */
+    margin: 1px; /* Example margin between items */
+    border-radius: 5px; /* Example border radius */
+}
+
+
 
 /* search results------------------------------------------------------------------------------------------------------------ */
 #searchContainer {

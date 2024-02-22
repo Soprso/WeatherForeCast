@@ -34,10 +34,11 @@
         </div>
         <div class="separate-box">
             <!-- <button class="clear-button" onclick="clearInput()">X</button> -->
-            <input type="search" class="city-name" style="border-radius: 30px;padding-left: 30px;border-width: 1px;" id="get-city-name"
+            <input type="search" class="city-name" style="border-radius: 30px;padding-left: 30px;border-width: 0.2px;" id="get-city-name"
             placeholder="Search for City/State/Country or Co-ordinates....">
             <ul id="searchResults" style="text-align: center;"></ul>
         </div>
+        
             <div class="search-buttons">
                 <button id="fetchweather"class="Get-Weather" onclick="getWeather()">
                     <img src="search.svg" alt="FindWeather">
@@ -54,11 +55,46 @@
             <div class="separator"></div>
             <div class="location" id="location"></div>
             <div class="separator"></div>
+            <div class="hourly-forecast-container" id="hourlyForecast">
+                <!-- Example Hourly Forecast Items -->
+
+                <div class="hourly-forecast-item" id="hour00">12:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
+                <div class="hourly-forecast-item" id="hour01">01:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
+                <div class="hourly-forecast-item" id="hour02">02:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
+                <div class="hourly-forecast-item" id="hour03">03:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
+                <div class="hourly-forecast-item" id="hour04">04:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>28°C</div>
+                <div class="hourly-forecast-item" id="hour05">05:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
+                <div class="hourly-forecast-item" id="hour06">06:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
+                <div class="hourly-forecast-item" id="hour07">07:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
+                <div class="hourly-forecast-item" id="hour08">08:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
+                <div class="hourly-forecast-item" id="hour09">09:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
+                <div class="hourly-forecast-item" id="hour10">10:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
+                <div class="hourly-forecast-item" id="hour11">11:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
+                <div class="hourly-forecast-item" id="hour12">12:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
+                <div class="hourly-forecast-item" id="hour13">01:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
+                <div class="hourly-forecast-item" id="hour14">02:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
+                <div class="hourly-forecast-item" id="hour15">03:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>28°C</div>
+                <div class="hourly-forecast-item" id="hour16">04:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
+                <div class="hourly-forecast-item" id="hour17">05:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
+                <div class="hourly-forecast-item" id="hour18">06:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
+                <div class="hourly-forecast-item" id="hour19">07:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
+                <div class="hourly-forecast-item" id="hour20">08:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
+                <div class="hourly-forecast-item" id="hour21">09:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
+                <div class="hourly-forecast-item" id="hour22">10:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>28°C</div>
+                <div class="hourly-forecast-item" id="hour23">11:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
+                <!-- Add more hourly forecast items as needed -->
+            </div>
+             <div class="separator"></div>
             <div class="conditionicon" id="conditionicon"></div>
-            <div class="separator"></div>
+            <!-- <div class="separator"></div> -->
             <div class="condition" id="condition"></div>
             <div class="separator"></div>
             <div class="wind" id="wind"></div>
+            <div class="gust" id="gust"></div>
+            <div class="separator"></div>
+            <div class="cloudcover" id="cloudcover"></div>
+            <div class="separator"></div>
+            <div class="uv" id="uv"></div>
             <div class="separator"></div>
             <div class="humidity" id="humidity"></div>
         </div>
@@ -68,13 +104,13 @@
         <h2>Share Forecast</h2>
         <div class="share-buttons">
             <!-- Add your share buttons here (e.g., Facebook, Twitter, LinkedIn) -->
-            <button class="share-button facebook">
+            <button class="share-button facebook" onclick="shareWeatherToFacebookOnClick()">
             </button>
-            <button class="share-button twitter">
+            <button class="share-button twitter" onclick="shareWeatherToFacebookOnClick()">
             </button>
-            <button class="share-button linkedin">
+            <button class="share-button linkedin" onclick="shareWeatherToFacebookOnClick()">
             </button>
-            <button class="share-button whatsapp">
+            <button class="share-button whatsapp" onclick="shareWeatherToFacebookOnClick()">
             </button>
         </div>
     </section>
