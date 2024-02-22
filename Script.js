@@ -26525,6 +26525,8 @@ function clearInput() {
 // function to fetch weather by location
 
 function getWeatherByCoordinates() {
+
+    // checkWeather();
     var getWeatherDetailsWidget=document.getElementById('getWeatherDetails');
     if(getWeatherDetailsWidget.style.display==='none'){
         getWeatherDetailsWidget.style.display='block';
@@ -26548,7 +26550,7 @@ function getWeatherByCoordinates() {
                     displayWeatherInfo(this.responseText);
                 } else {
                     console.error('Error fetching weather data. Status:', this.status);
-                    alert("No Such Location found!!!, Please enter a valid location or coordinate");
+                    alert("Sorry!! We don't have this location's data at this moment!!");
                 }
             }
         });
@@ -26574,7 +26576,11 @@ function getWeather(){
         getWeatherDetailsWidget.style.display='block';
     }
     const cityName = document.getElementById('get-city-name').value;
-    const url = 'https://weatherapi-com.p.rapidapi.com/current.json?q=' + cityName;
+    if(cityName===''){
+        alert("Please enter a location!");
+    }
+    else{
+        const url = 'https://weatherapi-com.p.rapidapi.com/current.json?q=' + cityName;
     const xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     
@@ -26584,7 +26590,7 @@ function getWeather(){
                 displayWeatherInfo(this.responseText);
             } else {
                 console.error('Error fetching weather data. Status:', this.status);
-                alert("No Such Location found!!!, Please enter a valid location or coordinate");
+                alert("Sorry!! We don't have this location's data at this moment!!");
             }
         }
     });
@@ -26597,6 +26603,8 @@ function getWeather(){
     xhr.setRequestHeader('X-RapidAPI-Key', 'c4740aea08msh56f4945256fc23ap1aba5ejsnf54583c100f1');
     xhr.setRequestHeader('X-RapidAPI-Host', 'weatherapi-com.p.rapidapi.com');
     xhr.send();
+    }
+    
 
 }
 
@@ -26604,7 +26612,8 @@ var input = document.getElementById("get-city-name");
 // Add event listener for hitting the enter key
 input.addEventListener("keyup", function(event) {
     // Check if the 'Enter' key is pressed
-    if (event.keyCode === 13) {
+    if (event.key === 'Enter') {
+        searchResults.style.display="none";
         getWeather();
     }
   });
@@ -26774,5 +26783,4 @@ function dayOrNight(dateTimeString){
         return 'night';
     }
 }
-
 

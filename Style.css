@@ -112,7 +112,7 @@
 }
 
 .clear-button {
-    /* position: absolute; */
+    /* position: relative; */
     right: 5px; /* Adjust the position of the button */
     top: 50%;
     transform: translateY(-50%);
@@ -135,6 +135,7 @@
 .city-name:focus{
     border-color: rgb(3, 54, 65);
     background-color: #deeccf;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
 .Get-Weather{
@@ -439,11 +440,13 @@ input[type="submit"]:hover {
 }
 
 #searchInput {
-    width: 300px; /* Set the width of the input field */
+    width: 100%; /* Set the width of the input field */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 13px;
+    height: 45px;
+    transition: border-color 0.3s,box-shadow 0.3s, background-color 0.3s;
 }
 
 #searchResults {
