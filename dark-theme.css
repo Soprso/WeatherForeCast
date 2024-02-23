@@ -204,7 +204,7 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0);
     color:   whitesmoke;
     width: 100%;
-    margin-right: 15px;
+    /* margin-right: 15px; */
     text-align: center;
 }
 
@@ -294,25 +294,31 @@ body {
 
 .feelsLike,
 .minTemp,
-.maxTemp{
+.maxTemp,
+.sunRise,
+.sunSet{
     font-style: italic;
     color:  whitesmoke;
     margin-top: 5px;
-    margin-right: 50px;
+    margin-right: 20px;
     font-weight: bold;
     text-align: center;
 }
 
 .minTemp,
-.maxTemp{
+.maxTemp,
+.sunRise,
+.sunSet{
     font-style: normal;
     margin-top: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
 
-.minMax{
+.minMax,
+.sunDetails{
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 /* Style the footer */

@@ -54,6 +54,10 @@
                 <div class="maxTemp" id="maxTemp"></div>
                 <div class="minTemp" id="minTemp"></div>
             </div>
+            <div class="sunDetails">
+                <div class="sunRise" id="sunRise"><img src="sunrise.svg" alt="sunrise-icon"></div>
+                <div class="sunSet" id="sunSet"><img src="sunset.svg" alt="sunrise-icon"></div>
+            </div>
             <div class="separator"style="margin-bottom: 15px"></div> 
             <div class="localTime" id="localTime"></div>
             <div class="separator"></div>
@@ -64,103 +68,102 @@
             </div> -->
             <div class="hourly-forecast-container" id="hourlyForecast">
                 <!-- Example Hourly Forecast Items -->
-
-                <div class="hourly-forecast-item" id="hour00">12:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour01">01:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour02">02:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour03">03:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour04">04:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>28°C</div>
-                <div class="hourly-forecast-item" id="hour05">05:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour06">06:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour07">07:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour08">08:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour09">09:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour10">10:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour11">11:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour12">12:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour13">01:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour14">02:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour15">03:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>28°C</div>
-                <div class="hourly-forecast-item" id="hour16">04:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour17">05:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour18">06:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour19">07:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour20">08:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour21">09:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour22">10:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>28°C</div>
-                <div class="hourly-forecast-item" id="hour23">11:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-				<div class="hourly-forecast-item" id="hour24">12:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour25">01:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour26">02:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour27">03:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour28">04:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>28°C</div>
-                <div class="hourly-forecast-item" id="hour29">05:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour30">06:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour31">07:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour32">08:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour33">09:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour34">10:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour35">11:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour36">12:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour37">01:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour38">02:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour39">03:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>28°C</div>
-                <div class="hourly-forecast-item" id="hour40">04:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour41">05:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour42">06:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour43">07:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour44">08:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour45">09:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour46">10:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>28°C</div>
-                <div class="hourly-forecast-item" id="hour47">11:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-				<div class="hourly-forecast-item" id="hour48">12:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour49">01:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour50">02:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour51">03:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour52">04:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>28°C</div>
-                <div class="hourly-forecast-item" id="hour53">05:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour54">06:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour55">07:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour56">08:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour57">09:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour58">10:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour59">11:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour60">12:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour61">01:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour62">02:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour63">03:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>28°C</div>
-                <div class="hourly-forecast-item" id="hour64">04:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour65">05:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour66">06:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour67">07:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour68">08:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour69">09:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour70">10:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>28°C</div>
-                <div class="hourly-forecast-item" id="hour71">11:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-				<div class="hourly-forecast-item" id="hour72">12:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour73">01:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour74">02:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour75">03:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour76">04:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>28°C</div>
-                <div class="hourly-forecast-item" id="hour77">05:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour78">06:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour79">07:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour80">08:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour81">09:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour82">10:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour83">11:00 AM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour84">12:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour85">01:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour86">02:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour87">03:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>28°C</div>
-                <div class="hourly-forecast-item" id="hour88">04:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour89">05:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour90">06:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour91">07:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>25°C</div>
-                <div class="hourly-forecast-item" id="hour92">08:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>26°C</div>
-                <div class="hourly-forecast-item" id="hour93">09:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
-                <div class="hourly-forecast-item" id="hour94">10:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>28°C</div>
-                <div class="hourly-forecast-item" id="hour95">11:00 PM<br><img src="cloudy-day-1.svg" alt="partial cloud"><br>27°C</div>
+                <div class="hourly-forecast-item" id="hour00"></div>
+                <div class="hourly-forecast-item" id="hour01"></div>
+                <div class="hourly-forecast-item" id="hour02"></div>
+                <div class="hourly-forecast-item" id="hour03"></div>
+                <div class="hourly-forecast-item" id="hour04"></div>
+                <div class="hourly-forecast-item" id="hour05"></div>
+                <div class="hourly-forecast-item" id="hour06"></div>
+                <div class="hourly-forecast-item" id="hour07"></div>
+                <div class="hourly-forecast-item" id="hour08"></div>
+                <div class="hourly-forecast-item" id="hour09"></div>
+                <div class="hourly-forecast-item" id="hour10"></div>
+                <div class="hourly-forecast-item" id="hour11"></div>
+                <div class="hourly-forecast-item" id="hour12"></div>
+                <div class="hourly-forecast-item" id="hour13"></div>
+                <div class="hourly-forecast-item" id="hour14"></div>
+                <div class="hourly-forecast-item" id="hour15"></div>
+                <div class="hourly-forecast-item" id="hour16"></div>
+                <div class="hourly-forecast-item" id="hour17"></div>
+                <div class="hourly-forecast-item" id="hour18"></div>
+                <div class="hourly-forecast-item" id="hour19"></div>
+                <div class="hourly-forecast-item" id="hour20"></div>
+                <div class="hourly-forecast-item" id="hour21"></div>
+                <div class="hourly-forecast-item" id="hour22"></div>
+                <div class="hourly-forecast-item" id="hour23"></div>
+				<div class="hourly-forecast-item" id="hour24"></div>
+                <div class="hourly-forecast-item" id="hour25"></div>
+                <div class="hourly-forecast-item" id="hour26"></div>
+                <div class="hourly-forecast-item" id="hour27"></div>
+                <div class="hourly-forecast-item" id="hour28"></div>
+                <div class="hourly-forecast-item" id="hour29"></div>
+                <div class="hourly-forecast-item" id="hour30"></div>
+                <div class="hourly-forecast-item" id="hour31"></div>
+                <div class="hourly-forecast-item" id="hour32"></div>
+                <div class="hourly-forecast-item" id="hour33"></div>
+                <div class="hourly-forecast-item" id="hour34"></div>
+                <div class="hourly-forecast-item" id="hour35"></div>
+                <div class="hourly-forecast-item" id="hour36"></div>
+                <div class="hourly-forecast-item" id="hour37"></div>
+                <div class="hourly-forecast-item" id="hour38"></div>
+                <div class="hourly-forecast-item" id="hour39"></div>
+                <div class="hourly-forecast-item" id="hour40"></div>
+                <div class="hourly-forecast-item" id="hour41"></div>
+                <div class="hourly-forecast-item" id="hour42"></div>
+                <div class="hourly-forecast-item" id="hour43"></div>
+                <div class="hourly-forecast-item" id="hour44"></div>
+                <div class="hourly-forecast-item" id="hour45"></div>
+                <div class="hourly-forecast-item" id="hour46"></div>
+                <div class="hourly-forecast-item" id="hour47"></div>
+				<div class="hourly-forecast-item" id="hour48"></div>
+                <div class="hourly-forecast-item" id="hour49"></div>
+                <div class="hourly-forecast-item" id="hour50"></div>
+                <div class="hourly-forecast-item" id="hour51"></div>
+                <div class="hourly-forecast-item" id="hour52"></div>
+                <div class="hourly-forecast-item" id="hour53"></div>
+                <div class="hourly-forecast-item" id="hour54"></div>
+                <div class="hourly-forecast-item" id="hour55"></div>
+                <div class="hourly-forecast-item" id="hour56"></div>
+                <div class="hourly-forecast-item" id="hour57"></div>
+                <div class="hourly-forecast-item" id="hour58"></div>
+                <div class="hourly-forecast-item" id="hour59"></div>
+                <div class="hourly-forecast-item" id="hour60"></div>
+                <div class="hourly-forecast-item" id="hour61"></div>
+                <div class="hourly-forecast-item" id="hour62"></div>
+                <div class="hourly-forecast-item" id="hour63"></div>
+                <div class="hourly-forecast-item" id="hour64"></div>
+                <div class="hourly-forecast-item" id="hour65"></div>
+                <div class="hourly-forecast-item" id="hour66"></div>
+                <div class="hourly-forecast-item" id="hour67"></div>
+                <div class="hourly-forecast-item" id="hour68"></div>
+                <div class="hourly-forecast-item" id="hour69"></div>
+                <div class="hourly-forecast-item" id="hour70"></div>
+                <div class="hourly-forecast-item" id="hour71"></div>
+				<div class="hourly-forecast-item" id="hour72"></div>
+                <div class="hourly-forecast-item" id="hour73"></div>
+                <div class="hourly-forecast-item" id="hour74"></div>
+                <div class="hourly-forecast-item" id="hour75"></div>
+                <div class="hourly-forecast-item" id="hour76"></div>
+                <div class="hourly-forecast-item" id="hour77"></div>
+                <div class="hourly-forecast-item" id="hour78"></div>
+                <div class="hourly-forecast-item" id="hour79"></div>
+                <div class="hourly-forecast-item" id="hour80"></div>
+                <div class="hourly-forecast-item" id="hour81"></div>
+                <div class="hourly-forecast-item" id="hour82"></div>
+                <div class="hourly-forecast-item" id="hour83"></div>
+                <div class="hourly-forecast-item" id="hour84"></div>
+                <div class="hourly-forecast-item" id="hour85"></div>
+                <div class="hourly-forecast-item" id="hour86"></div>
+                <div class="hourly-forecast-item" id="hour87"></div>
+                <div class="hourly-forecast-item" id="hour88"></div>
+                <div class="hourly-forecast-item" id="hour89"></div>
+                <div class="hourly-forecast-item" id="hour90"></div>
+                <div class="hourly-forecast-item" id="hour91"></div>
+                <div class="hourly-forecast-item" id="hour92"></div>
+                <div class="hourly-forecast-item" id="hour93"></div>
+                <div class="hourly-forecast-item" id="hour94"></div>
+                <div class="hourly-forecast-item" id="hour95"></div>
                 <!-- Add more hourly forecast items as needed -->
             </div>
              <div class="separator"></div>
@@ -195,6 +198,7 @@
     </section>
     
     <script ref="javascript" src="Script.js"></script>
+    <!-- <script ref="javascript" src="Script-min.js"></script> -->
     <!-- <script ref="javascript" src="NewScript.js"></script> -->
     <script src="theme-toggle.js"></script>
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>

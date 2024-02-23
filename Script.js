@@ -26857,6 +26857,23 @@ container.addEventListener('wheel', (event) => {
     event.preventDefault();
 });
 
+function convertTo12HourFormat(time24Hour) {
+    // Split the time into hours, minutes, and seconds
+    const [hours, minutes, seconds] = time24Hour.split(':').map(Number);
+
+    // Determine AM or PM
+    const period = hours >= 12 ? 'PM' : 'AM';
+
+    // Convert hours to 12-hour format
+    const hours12 = hours % 12 || 12;
+
+    // Construct the 12-hour format time string
+    const time12Hour = `${hours12}:${minutes < 10 ? '0' : ''}${minutes} ${period}`;
+
+    return time12Hour;
+}
+
+
 
 
 function fetchHourlyForecast(latitude, longitude) {
@@ -26873,6 +26890,8 @@ function fetchHourlyForecast(latitude, longitude) {
             // Get the hourly data for the next 48 hours
             const maxTempElement = document.getElementById('maxTemp');
             const minTempElement = document.getElementById('minTemp');
+            const sunRiseElement = document.getElementById('sunRise');
+            const sunSetElement = document.getElementById('sunSet');
             const hourlyDataToday = data.days[0].hours;
             const hourlyDataTomorrow = data.days[1].hours;
             const hourlyDataDayAfterTomorrow=data.days[2].hours;
@@ -26880,6 +26899,10 @@ function fetchHourlyForecast(latitude, longitude) {
             const combinedHourlyData = [...hourlyDataToday, ...hourlyDataTomorrow,...hourlyDataDayAfterTomorrow, ...hourlyDataTwoDaysAfterTomorrow];
             maxTempElement.textContent = 'Max :'+data.days[0].tempmax+' °C';
             minTempElement.textContent = 'Min :'+data.days[0].tempmin+' °C';
+            sunRiseElement.textContent = convertTo12HourFormat(data.currentConditions.sunrise);
+            sunRiseElement.innerHTML=`<img src="sunrise.svg" alt="sunrise-icon"><br>`+sunRiseElement.innerHTML;
+            sunSetElement.textContent = convertTo12HourFormat(data.currentConditions.sunset);
+            sunSetElement.innerHTML=`<img src="sunset.svg" alt="sunset-icon"><br>`+sunSetElement.innerHTML;
             // Iterate over each hour of the next 96 hours
             for (let i = 0; i < 96; i++) {
                 const hourData = combinedHourlyData[i];
