@@ -26582,7 +26582,7 @@ function getWeather(){
     if(cityName===''){
         alert("Please enter a location!");
         getWeatherByCoordinates();
-        alert("Weather for Current Location will be displayed!")
+        alert("Weather for Current Location will be displayed!");
     }
     else{
         const url = 'https://weatherapi-com.p.rapidapi.com/current.json?q=' + cityName;
@@ -26597,6 +26597,8 @@ function getWeather(){
             } else {
                 console.error('Error fetching weather data. Status:', this.status);
                 alert("Sorry!! We don't have this location's data at this moment!!");
+                getWeatherByCoordinates();
+                alert("Weather for Current Location will be displayed!");
             }
         }
     });
