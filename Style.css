@@ -176,7 +176,7 @@
     padding: 20px;
     margin: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    max-width: 500px;
+    max-width: 80%;
     margin: auto;
     text-align: left;
     border-width: 0px;
@@ -235,6 +235,7 @@
     margin-bottom: 10px;
     margin-top: 20px;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .localTime{
@@ -247,7 +248,11 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.feelsLike{
+
+
+.feelsLike,
+.minTemp,
+.maxTemp{
     font-style: italic;
     color:  rgb(19, 131, 109);
     margin-top: 5px;
@@ -255,6 +260,21 @@
     font-weight: bold;
     text-align: center;
 }
+
+.minTemp,
+.maxTemp{
+    font-style: normal;
+    margin-top: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+
+.minMax{
+    display: flex;
+    justify-content: center;
+}
+
 
 /* Style the footer */
 .footer {

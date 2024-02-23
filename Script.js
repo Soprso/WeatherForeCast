@@ -26871,12 +26871,17 @@ function fetchHourlyForecast(latitude, longitude) {
         .then(response => response.json())
         .then(data => {
             // Get the hourly data for the next 48 hours
+            const maxTempElement = document.getElementById('maxTemp');
+            const minTempElement = document.getElementById('minTemp');
             const hourlyDataToday = data.days[0].hours;
             const hourlyDataTomorrow = data.days[1].hours;
-            const combinedHourlyData = [...hourlyDataToday, ...hourlyDataTomorrow];
-
-            // Iterate over each hour of the next 48 hours
-            for (let i = 0; i < 48; i++) {
+            const hourlyDataDayAfterTomorrow=data.days[2].hours;
+            const hourlyDataTwoDaysAfterTomorrow=data.days[3].hours;
+            const combinedHourlyData = [...hourlyDataToday, ...hourlyDataTomorrow,...hourlyDataDayAfterTomorrow, ...hourlyDataTwoDaysAfterTomorrow];
+            maxTempElement.textContent = 'Max :'+data.days[0].tempmax+' °C';
+            minTempElement.textContent = 'Min :'+data.days[0].tempmin+' °C';
+            // Iterate over each hour of the next 96 hours
+            for (let i = 0; i < 96; i++) {
                 const hourData = combinedHourlyData[i];
 
                 // Store the hour's data in the array
@@ -26903,9 +26908,11 @@ function fetchHourlyForecast(latitude, longitude) {
                 if (hourlyElement) {
                     // Display the day, time, temperature, and condition in the HTML element
                     hourlyElement.innerHTML = `${day}<br>${time12Hour}<br><img src="${hourData.icon}.svg" alt="${hourData.conditions}"><br>${hourData.temp}°C<br>${hourData.conditions}`;
+
                 }
                 //createGraph(hourlyForecastArray);
             }
+
         })
         .catch(error => {
             console.error('Error fetching data:', error);
