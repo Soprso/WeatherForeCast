@@ -475,7 +475,7 @@ input[type="submit"]:hover {
 }
 
 .hourly-forecast-item {
-    width: 70px; /* Adjust item width as needed */
+    width: 80px; /* Adjust item width as needed */
     text-align: center; /* Center text */
     display: inline-block; /* Display items in a row */
     background-color: #deeccf; /* Example background color */
@@ -537,6 +537,11 @@ input[type="submit"]:hover {
 }
 
 #searchResults li:hover {
+    background-color:rgb(3, 54, 65);
+    color: white;
+}
+
+.selected{
     background-color:rgb(3, 54, 65);
     color: white;
 }
@@ -605,6 +610,21 @@ input:checked + .slider:before {
     -ms-transform: translateX(16px);
     transform: translateX(16px);
 }
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 20px; /* Set the height of the cancel button */
+    width: 20px; /* Set the width of the cancel button */
+    margin-left: .4em;
+    background-image: url("cancel.svg");
+    cursor: pointer;
+    overflow: hidden;
+}
+
+input[type="search"]::-webkit-search-cancel-button:hover{
+    background-image: url("cancel-hover.svg");
+}
+
 
 /* Rounded sliders */
 .slider.round {

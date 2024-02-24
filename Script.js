@@ -26476,38 +26476,43 @@ const searchResults = document.getElementById('searchResults');
 let weatherData='';
 
 // Event listener for input changes
-searchInput.addEventListener('input', function() {
-    const inputValue = searchInput.value.toLowerCase(); // Convert input value to lowercase
+// searchInput.addEventListener('input', function() {
+//     const inputValue = searchInput.value.toLowerCase(); // Convert input value to lowercase
 
-    // Clear previous search results
-    searchResults.innerHTML = '';
+//     // Clear previous search results
+//     searchResults.innerHTML = '';
 
-    // Filter cities based on user input
-    const filteredCities = cities.filter(city => {
-        return city.toLowerCase().includes(inputValue); // Filter cities whose names contain the input
-    });
+//     // Filter cities based on user input
+//     const filteredCities = cities.filter(city => {
+//         return city.toLowerCase().includes(inputValue); // Filter cities whose names contain the input
+//     });
 
-    // Display search results
-    filteredCities.forEach(city => {
-        const li = document.createElement('li');
-        li.textContent = city;
-        li.addEventListener('click', function() {
-            // Set input value to the clicked city name
-            searchInput.value = city;
-            // Hide the dropdown
-            searchResults.style.display = 'none';
-            getWeather();
-        });
-        searchResults.appendChild(li);
-    });
+//         // Display up to 10 search results
+//         const displayedCities = filteredCities.slice(0, 20);
 
-    // Display the dropdown if there are search results
-    if (filteredCities.length > 0) {
-        searchResults.style.display = 'block';
-    } else {
-        searchResults.style.display = 'none';
-    }
-});
+//     // Display search results
+//     displayedCities.forEach(city => {
+//         const li = document.createElement('li');
+//         li.textContent = city;
+//         li.addEventListener('click', function(event) {
+//             // Set input value to the clicked city name
+//             searchInput.value = city;
+
+//             searchInput.value = event.target.textContent;
+//             // Hide the dropdown
+//             searchResults.style.display = 'none';
+//             getWeather();
+//         });
+//         searchResults.appendChild(li);
+//     });
+
+//     // Display the dropdown if there are search results
+//     if (displayedCities.length > 0) {
+//         searchResults.style.display = 'block';
+//     } else {
+//         searchResults.style.display = 'none';
+//     }
+// });
 
 // Event listener for clicks outside the dropdown
 document.addEventListener('click', function(event) {
@@ -26517,6 +26522,114 @@ document.addEventListener('click', function(event) {
         searchResults.style.display = 'none';
     }
 });
+
+
+
+// Event listener for input changes
+searchInput.addEventListener('input', function() {
+    const inputValue = searchInput.value.toLowerCase(); // Convert input value to lowercase
+
+    // Clear previous search results
+    searchResults.innerHTML = '';
+
+    // Filter cities based on user input
+    currentResults = cities.filter(city => {
+        return city.toLowerCase().includes(inputValue); // Filter cities whose names contain the input
+    });
+
+    // Display the first 10 results or the available results
+    displayResults(0, Math.min(10, currentResults.length));
+});
+
+// Function to display a subset of results
+function displayResults(startIndex, endIndex) {
+    for (let i = startIndex; i < endIndex; i++) {
+        const li = document.createElement('li');
+        li.textContent = currentResults[i];
+        li.addEventListener('click', function() {
+            // Set input value to the clicked city name
+            searchInput.value = currentResults[i];
+            // Hide the dropdown
+            searchResults.style.display = 'none';
+            getWeather();
+        });
+        searchResults.appendChild(li);
+    }
+
+    // Display the dropdown if there are search results
+    if (currentResults.length > 0) {
+        searchResults.style.display = 'block';
+    } else {
+        searchResults.style.display = 'none';
+    }
+}
+
+// Event listener for scrolling to load more results
+searchResults.addEventListener('scroll', function() {
+    // If the user has reached the end of the list
+    if (searchResults.scrollTop + searchResults.clientHeight >= searchResults.scrollHeight) {
+        // Calculate the index of the last displayed result
+        const lastIndex = searchResults.getElementsByTagName('li').length;
+
+        // If there are more results to display
+        if (lastIndex < currentResults.length) {
+            // Load and display the next 10 results or the remaining results
+            const nextIndex = Math.min(lastIndex + 10, currentResults.length);
+            displayResults(lastIndex, nextIndex);
+        }
+    }
+});
+
+
+// Event listener for keydown events to scroll through selected items
+document.addEventListener('keydown', function(event) {
+    // Get all the list items inside the search results
+    const listItems = searchResults.getElementsByTagName('li');
+    let currentIndex = -1;
+
+    // Find the index of the currently selected item
+    for (let i = 0; i < listItems.length; i++) {
+        if (listItems[i].classList.contains('selected')) {
+            currentIndex = i;
+            break;
+        }
+    }
+
+    // Handle key actions
+    switch (event.key) {
+        case 'ArrowUp':
+            // Move selection up
+            if (currentIndex > 0) {
+                listItems[currentIndex].classList.remove('selected');
+                listItems[currentIndex - 1].classList.add('selected');
+                listItems[currentIndex - 1].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+            }
+            break;
+        case 'ArrowDown':
+            // Move selection down
+            if (currentIndex < listItems.length - 1) {
+                if (currentIndex >= 0) {
+                    listItems[currentIndex].classList.remove('selected');
+                    searchInput.textContent = listItems[currentIndex].textContent;
+                }
+                listItems[currentIndex + 1].classList.add('selected');
+                
+                listItems[currentIndex + 1].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+            }
+            break;
+        case 'Enter':
+            // Select the currently highlighted item
+            if (currentIndex >= 0) {
+                searchInput.value = listItems[currentIndex].textContent;
+                searchResults.style.display = 'none';
+                getWeather();
+            }
+            break;
+    }
+});
+
+
+
 
 // Clear Search Results
 
@@ -26659,7 +26772,7 @@ function displayWeatherInfo(weatherData) {
         uvElement.textContent='UV index: '+currentWeather.uv;
         temperatureElement.textContent = currentWeather.temp_c + ' °C';
         temperatureElement.innerHTML+=`<img src="temperature.gif" alt="temperature-icon"; style="margin-left: 15px;margin-top: 10px">`;
-        localTimeElement.textContent=retunDay(data.location.localtime)+', '+ formatTime12Hour(data.location.localtime);
+        localTimeElement.textContent=returnDay(data.location.localtime)+', '+ formatTime12Hour(data.location.localtime);
         conditionIconElement.textContent='';
         if(conditionElement){
             conditionElement.textContent = 'Weather Condition: ' + currentWeather.condition.text;
@@ -26753,38 +26866,15 @@ function formatTime12Hour(dateTimeString) {
     return formattedTime;
 }
 
-function retunDay(dateTimeString){
-    const date =new Date(dateTimeString);
-    let days= date.getDay();
-    if (days===1)
-    {
-        return 'Monday';
-    }
-    if (days===2)
-    {
-        return 'Tuesday';
-    }
-    if (days===3)
-    {
-        return 'Wednesday';
-    }
-    if (days===4)
-    {
-        return 'Thursday';
-    }
-    if (days===5)
-    {
-        return 'Friday';
-    }
-    if (days===6)
-    {
-        return 'Saturday';
-    }
-    if (days===7)
-    {
-        return 'Sunday';
-    }
+function returnDay(dateTimeString) {
+    const date = new Date(dateTimeString);
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayIndex = date.getDay(); // Returns the day of the week as an integer (0-6)
+
+    return daysOfWeek[dayIndex];
 }
+
+
 function dayOrNight(dateTimeString){
     const date= new Date(dateTimeString);
     let hours=date.getHours();
