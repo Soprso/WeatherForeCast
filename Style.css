@@ -95,6 +95,14 @@
     width: 100%;
 }
 
+/* Media query for small screens (mobile devices) */
+@media only screen and (max-width: 600px) {
+    .weather-label-logo {
+        height: 80px; /* Adjust height for smaller screens */
+        width: 80px; /* Adjust width for smaller screens */
+    }
+}
+
 .check-weather-label:hover{
     color:  rgb(19, 131, 109);
     cursor: pointer;
