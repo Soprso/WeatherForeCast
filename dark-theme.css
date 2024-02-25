@@ -69,6 +69,10 @@ body {
     /* display: block; */
 /* } */ 
 
+.weather-widget{
+    text-align: center;
+}
+
 /* Style the check weather label */
 .check-weather-label {
     padding-top: 10px;
@@ -81,6 +85,18 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     color: #1b1b1b; /* Add a color value */
     transition: color 0.3s;
+    display: inline-flex;
+}
+
+.weather-label-logo {
+    height: 100px;
+    width: 100px;
+}
+
+
+.weather-label-logo img{
+    height: 100%;
+    width: 100%;
 }
 
 .check-weather-label:hover{
