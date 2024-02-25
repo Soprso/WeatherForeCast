@@ -105,6 +105,10 @@ body {
         height: 80px; /* Adjust height for smaller screens */
         width: 80px; /* Adjust width for smaller screens */
     }
+
+    .check-weather-label{
+        font-size: 60px;
+    }
 }
 
 .check-weather-label:hover{
