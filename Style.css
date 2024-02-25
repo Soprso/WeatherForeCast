@@ -528,12 +528,15 @@ input[type="submit"]:hover {
     display: none; /* Initially hide the dropdown */
     left: 50%; /* Position the dropdown at 50% from the left */
     transform: translateX(-50%); /* Center the dropdown */
+    overflow: auto;
 }
 
 #searchResults li {
     padding: 10px;
     cursor: pointer;
     border-bottom: 1px solid;
+    overflow: auto ; 
+ 
 }
 
 #searchResults li:hover {
