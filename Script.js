@@ -26941,7 +26941,6 @@ function formatWeatherData(weatherData) {
 }
 
 
-
 const container = document.getElementById('hourlyForecast');
 
 container.addEventListener('wheel', (event) => {
@@ -26964,8 +26963,6 @@ function convertTo12HourFormat(time24Hour) {
 
     return time12Hour;
 }
-
-
 
 
 function fetchHourlyForecast(latitude, longitude) {
@@ -27036,4 +27033,39 @@ function fetchHourlyForecast(latitude, longitude) {
          // Return the array containing hourly forecast data
 }
 
+// Get the modal element
+var modal = document.getElementById('myModal');
 
+// Get the button that opens the modal
+var btn = document.querySelector('button');
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName('close')[0];
+
+// Function to open the modal
+function openModal() {
+    modal.style.display = 'block';
+}
+
+// Function to close the modal
+function closeModal() {
+    modal.style.display = 'none';
+}
+
+// Close the modal when the user clicks outside of it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
+var scriptElement = document.createElement('script');
+scriptElement.src = 'https://platform.linkedin.com/badges/js/profile.js';
+
+// Add the async and defer attributes
+scriptElement.async = true;
+scriptElement.defer = true;
+
+// Append the script element to the targeted div
+var linkedinDiv = document.getElementById('badge-base LI-profile-badge');
+linkedinDiv.appendChild(scriptElement);

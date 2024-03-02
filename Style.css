@@ -414,13 +414,13 @@ input[type="submit"]:hover {
   .left-half{
     width: 80%;
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 5px;
     background-color:  #deeccf;
   }
   .right-half {
     width: 20%;
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 5px;
     
   }
   
@@ -684,6 +684,57 @@ input[type="search"]::-webkit-search-cancel-button:hover{
     color: rgb(3, 54, 65);
     font-size: 20px;
     font-weight: bold;
+}
+
+
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #deeccf;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    color:  rgb(3, 54, 65);
+    border-radius: 30px;
+    opacity: 0.9;
+    text-align: justify;
+}
+
+.modal-content h2{
+    text-align: center;
+}
+
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+
 }
 
 /* Login Page------------------------------------------------------------------------------------------------ */
