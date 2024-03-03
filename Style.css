@@ -179,6 +179,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
 
+
+
 .Get-Weather{
     background-color:rgb(3, 54, 65);
     width: 50px;
@@ -381,6 +383,7 @@ input[type="submit"] {
     margin-top: 10px;
 }
 
+
 input[type="submit"]:hover {
     color: whitesmoke;
     background-color: rgb(19, 131, 109);
@@ -581,6 +584,8 @@ input[type="submit"]:hover {
  
 }
 
+
+
 #searchResults li:hover {
     background-color:rgb(3, 54, 65);
     color: white;
@@ -699,6 +704,7 @@ input[type="search"]::-webkit-search-cancel-button:hover{
     height: 100%;
     overflow: auto; /* Enable scrolling if needed */
     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    transition: opacity 0.5s ease; /* Add transition effect for opacity */
 
 }
 
@@ -706,14 +712,16 @@ input[type="search"]::-webkit-search-cancel-button:hover{
 .modal-content {
     background-color: #deeccf;
     margin: 5% auto;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #888;
     width: 80%;
     max-width: 600px;
     color:  rgb(3, 54, 65);
     border-radius: 30px;
-    opacity: 0.9;
-    text-align: justify;
+    opacity: 1;
+    text-align: left;
+    transition: opacity 0.5s ease; 
+    animation: bounce-in 0.5s; /* Add bounce-in animation */
 }
 
 .modal-content h2{
@@ -735,6 +743,20 @@ input[type="search"]::-webkit-search-cancel-button:hover{
     text-decoration: none;
     cursor: pointer;
 
+}
+
+/* Bounce-in animation */
+@keyframes bounce-in {
+    0% {
+        transform: scale(0.6); /* Start from slightly smaller size */
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.2); /* Bounce effect */
+    }
+    100% {
+        transform: scale(1); /* End at original size */
+    }
 }
 
 /* Login Page------------------------------------------------------------------------------------------------ */

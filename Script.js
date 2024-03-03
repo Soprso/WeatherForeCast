@@ -27045,12 +27045,19 @@ var span = document.getElementsByClassName('close')[0];
 // Function to open the modal
 function openModal() {
     modal.style.display = 'block';
+    setTimeout(function() {
+        modal.querySelector('.modal-content').style.opacity = '0.9'; // Fade in modal content
+    }, 50); // Delay for smoother transition
 }
 
 // Function to close the modal
 function closeModal() {
-    modal.style.display = 'none';
+    modal.querySelector('.modal-content').style.opacity = '0'; // Fade out modal content
+    setTimeout(function() {
+        modal.style.display = 'none';
+    }, 300); // Wait for transition to complete before hiding modal
 }
+
 
 // Close the modal when the user clicks outside of it
 window.onclick = function(event) {
@@ -27058,14 +27065,3 @@ window.onclick = function(event) {
         modal.style.display = 'none';
     }
 }
-
-var scriptElement = document.createElement('script');
-scriptElement.src = 'https://platform.linkedin.com/badges/js/profile.js';
-
-// Add the async and defer attributes
-scriptElement.async = true;
-scriptElement.defer = true;
-
-// Append the script element to the targeted div
-var linkedinDiv = document.getElementById('badge-base LI-profile-badge');
-linkedinDiv.appendChild(scriptElement);
